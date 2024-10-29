@@ -62,22 +62,22 @@ export default observer(function ActivityForm() {
                         <MyTextArea rows={3} placeholder='Description' name='description' />
                         <MySelectInput options={categoryOptions} placeholder='Category' name='category' />
                         <MyDateInput
-                        placeholderText='Date'
-                        name='date'
-                        showTimeSelect
-                        timeCaption='time'
-                        dateFormat='MMMM d, yyyy h:mm aa'
+                            placeholderText='Date'
+                            name='date'
+                            showTimeSelect
+                            timeCaption='time'
+                            dateFormat='MMMM d, yyyy h:mm aa'
                         />
                         <Header content='Location Details' sub color='teal' />
                         <MyTextInput placeholder='City' name='city' />
                         <MyTextInput placeholder='Venue' name='venue' />
                         <Button
-                        disabled={isSubmitting || !dirty || !isValid}
-                        loading={isSubmitting}
-                        floated='right'
-                        positive
-                        type='submit'
-                        content='Submit' />
+                            disabled={isSubmitting || !dirty || !isValid}
+                            loading={isSubmitting}
+                            floated='right'
+                            positive
+                            type='submit'
+                            content='Submit' />
                         <Button as={Link} to='/activities' floated='right' type='button' content='Cancel' />
                     </Form>
                 )}
