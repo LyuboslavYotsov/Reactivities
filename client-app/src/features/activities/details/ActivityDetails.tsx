@@ -12,12 +12,13 @@ import ActivityDetailedSidebar from "./ActivityDetailedSidebar";
 export default observer(function ActivityDetails() {
 
     const { activityStore } = useStore();
-    const { selectedActivity: activity, loadActivity, loadingInitial} = activityStore;
+    const { selectedActivity: activity, loadActivity, loadingInitial, clearSelectedActivity} = activityStore;
     const {id} = useParams();
 
     useEffect(() => {
-        if (id) loadActivity(id)
-    }, [id, loadActivity])
+        if (id) loadActivity(id);
+        return () => clearSelectedActivity();
+    }, [id, loadActivity, clearSelectedActivity])
 
     if (!activity || loadingInitial) {
         return <LoadingComponents />
