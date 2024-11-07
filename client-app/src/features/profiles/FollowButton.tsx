@@ -11,7 +11,7 @@ interface Props {
 export default observer(function FollowButton({ profile }: Props) {
 
     const {profileStore, userStore} = useStore();
-    const {updateFollowing, loading} = profileStore;
+    const {updateFollowing, loading, loadingFollowings} = profileStore;
 
     if (userStore.user?.username === profile.username) return null;
 
@@ -35,7 +35,7 @@ export default observer(function FollowButton({ profile }: Props) {
                     basic
                     color={profile.following ? 'red' : 'green'}
                     content={profile.following ? 'Unfollow' : 'Follow'}
-                    loading={loading}
+                    loading={loading || loadingFollowings}
                     onClick={(e) => handleFollow(e, profile.username)}
                 />
             </Reveal.Content>
